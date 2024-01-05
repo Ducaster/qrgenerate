@@ -32,7 +32,7 @@ function App() {
       </select> <br></br>
       <button onClick={generateQR}>Generate</button>
       <br></br>
-      {qrValue && <QRCode value= {qrValue} size={300} />}
+      {qrValue && <QRCode value= {qrValue} size={270} />}
       <ToastContainer />
     </Container>
   );
