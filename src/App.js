@@ -8,7 +8,16 @@ function App() {
   const [name, setName] = useState("");
   const [region, setRegion] = useState("");
   const [qrValue, setQrValue] = useState("");
-  const regions = ["대학", "중랑", "성북", "공릉", "노원", "도봉", "새신자"];
+  const regions = [
+    "대학",
+    "중랑",
+    "성북",
+    "공릉",
+    "노원",
+    "도봉",
+    "새신자",
+    "기능부",
+  ];
 
   const generateQR = () => {
     if (!name || !region) {
