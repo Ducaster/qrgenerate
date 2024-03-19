@@ -66,4 +66,7 @@ const Container = styled.div`
   justify-content: center;
   height: 100vh;
   background-color: white;
+  @media (prefers-color-scheme: dark) {
+    background-color: white;
+  }
 `;
