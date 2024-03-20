@@ -8,6 +8,8 @@ function App() {
   const [name, setName] = useState("");
   const [region, setRegion] = useState("");
   const [qrValue, setQrValue] = useState("");
+  const [showInfo, setShowInfo] = useState(false);
+
   const regions = [
     "대학",
     "중랑",
@@ -28,6 +30,7 @@ function App() {
       });
     } else {
       setQrValue(JSON.stringify({ name, region }));
+      setShowInfo(true);
     }
   };
 
@@ -53,6 +56,13 @@ function App() {
       <button onClick={generateQR}>Generate</button>
       <br></br>
       {qrValue && <QRCode value={qrValue} size={270} />}
+      <br></br>
+      {showInfo && (
+        <div>
+          지역: {region} <br></br>
+          이름: {name}
+        </div>
+      )}
     </Container>
   );
 }
