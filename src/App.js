@@ -4,6 +4,8 @@ import styled from "styled-components";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
 
+import "./styles.css";
+
 function App() {
   const [name, setName] = useState("");
   const [region, setRegion] = useState("");
@@ -36,33 +38,47 @@ function App() {
 
   return (
     <Container>
-      <input
-        onChange={(e) => setName(e.target.value)}
-        type="text"
-        placeholder="이름"
-      />{" "}
-      <br></br>
-      <select onChange={(e) => setRegion(e.target.value)} value={region}>
-        <option value="" disabled hidden>
-          지역 선택
-        </option>
-        {regions.map((region, index) => (
-          <option key={index} value={region}>
-            {region}
-          </option>
-        ))}
-      </select>{" "}
-      <br></br>
-      <button onClick={generateQR}>Generate</button>
-      <br></br>
-      {qrValue && <QRCode value={qrValue} size={270} />}
-      <br></br>
-      {showInfo && (
-        <div>
-          지역: {region} <br></br>
-          이름: {name}
+      <div class="bg1">
+        <div class="login">
+          <input
+            class="root1"
+            onChange={(e) => setName(e.target.value)}
+            type="text"
+            placeholder="이름"
+          />{" "}
+          <br></br>
+          <select
+            class="root1"
+            onChange={(e) => setRegion(e.target.value)}
+            value={region}
+          >
+            <option value="" disabled hidden>
+              지역 선택
+            </option>
+            {regions.map((region, index) => (
+              <option key={index} value={region}>
+                {region}
+              </option>
+            ))}
+          </select>{" "}
+          <br></br>
+          <button
+            class="btn btn-primary btn-block btn-large"
+            onClick={generateQR}
+          >
+            Generate
+          </button>
+          <br></br>
+          {qrValue && <QRCode value={qrValue} size={300} />}
+          {showInfo && (
+            <div className="info">
+              이름: {name}
+              <br />
+              지역: {region}
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </Container>
   );
 }
