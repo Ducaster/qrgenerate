@@ -38,7 +38,7 @@ function App() {
 
   return (
     <Container>
-      <div class="bg1">
+      <div>
         <div class="login">
           <input
             class="root1"
