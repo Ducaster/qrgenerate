@@ -77,8 +77,8 @@ function App() {
                 src: "WaveOn-QrLogo.png",
                 x: null,
                 y: null,
-                height: 24,
-                width: 24,
+                height: 40,
+                width: 40,
                 excavate: true, // QR 코드 중앙에 이미지를 "파내서" 넣을지 여부
               }}
             />
