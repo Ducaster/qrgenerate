@@ -69,7 +69,7 @@ function App() {
             Generate
           </button>
           <br></br>
-          {qrValue && <QRCode value={qrValue} size={300} />}
+          {qrValue && <QRCode value={qrValue} size={260} />}
           {showInfo && (
             <div className="info">
               이름: {name}
