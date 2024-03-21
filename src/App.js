@@ -73,8 +73,9 @@ function App() {
             <QRCode
               value={qrValue}
               size={260}
+              fgColor="#105090"
               imageSettings={{
-                src: "WaveOn-QrLogo.png",
+                src: "WaveOn.png",
                 x: null,
                 y: null,
                 height: 40,
