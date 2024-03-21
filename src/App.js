@@ -69,7 +69,20 @@ function App() {
             Generate
           </button>
           <br></br>
-          {qrValue && <QRCode value={qrValue} size={260} />}
+          {qrValue && (
+            <QRCode
+              value={qrValue}
+              size={260}
+              imageSettings={{
+                src: "WaveOn-QrLogo.png",
+                x: null,
+                y: null,
+                height: 24,
+                width: 24,
+                excavate: true, // QR 코드 중앙에 이미지를 "파내서" 넣을지 여부
+              }}
+            />
+          )}
           {showInfo && (
             <div className="info">
               이름: {name}
