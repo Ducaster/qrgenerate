@@ -13,7 +13,7 @@ function App() {
   const [showInfo, setShowInfo] = useState(false);
 
   const regions = [
-    "대학",
+    "대학부",
     "중랑",
     "성북",
     "공릉",
