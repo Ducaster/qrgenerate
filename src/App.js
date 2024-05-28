@@ -1,37 +1,24 @@
 import React, { useState } from "react";
 import QRCode from "qrcode.react";
 import styled from "styled-components";
-import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
 
 import "./styles.css";
 
 function App() {
-  const [name, setName] = useState("");
-  const [region, setRegion] = useState("");
-  const [qrValue, setQrValue] = useState("");
-  const [showInfo, setShowInfo] = useState(false);
-
-  const regions = [
-    "대학부",
-    "중랑",
-    "성북",
-    "공릉",
-    "노원",
-    "도봉",
-    "새신자",
-    "기능부",
-  ];
+  const [name, setName] = useState(""); // 이름 상태 추가
+  const [qrValue, setQrValue] = useState(""); // QR 코드 값 상태 추가
+  const [showInfo, setShowInfo] = useState(false); // 정보 표시 여부 상태 추가
 
   const generateQR = () => {
-    if (!name || !region) {
+    if (!name) {
       Swal.fire({
         icon: "error",
-        title: "이름과 지역을 모두 입력해주세요.",
+        title: "이름을 입력해주세요.",
         showConfirmButton: true,
       });
     } else {
-      setQrValue(JSON.stringify({ name, region }));
+      setQrValue(JSON.stringify({ name }));
       setShowInfo(true);
     }
   };
@@ -42,25 +29,11 @@ function App() {
         <div class="login">
           <input
             class="root1"
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)} // 이름 입력 시 setName 호출
             type="text"
             placeholder="이름"
           />{" "}
           <br></br>
-          <select
-            class="root1"
-            onChange={(e) => setRegion(e.target.value)}
-            value={region}
-          >
-            <option value="" disabled hidden>
-              지역 선택
-            </option>
-            {regions.map((region, index) => (
-              <option key={index} value={region}>
-                {region}
-              </option>
-            ))}
-          </select>{" "}
           <br></br>
           <button
             class="btn btn-primary btn-block btn-large"
@@ -73,24 +46,18 @@ function App() {
             <QRCode
               value={qrValue}
               size={260}
-              fgColor="#105090"
+              fgColor="#4f4f4f"
               imageSettings={{
-                src: "WaveOn.png",
+                src: "IAM_logo.png",
                 x: null,
                 y: null,
-                height: 40,
-                width: 40,
-                excavate: true, // QR 코드 중앙에 이미지를 "파내서" 넣을지 여부
+                height: 65,
+                width: 65,
+                excavate: true,
               }}
             />
           )}
-          {showInfo && (
-            <div className="info">
-              이름: {name}
-              <br />
-              지역: {region}
-            </div>
-          )}
+          {showInfo && <div className="info">이름: {name}</div>}
         </div>
       </div>
     </Container>
