@@ -18,7 +18,9 @@ function App() {
         showConfirmButton: true,
       });
     } else {
-      setQrValue(JSON.stringify({ name }));
+      // 이름과 고정된 지역값으로 QR 코드 데이터 생성
+      const qrData = { name, region: "5월" };
+      setQrValue(JSON.stringify(qrData));
       setShowInfo(true);
     }
   };
